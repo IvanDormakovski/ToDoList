@@ -1,44 +1,43 @@
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class Task {
+    private int id;
     private String name;
+    private String description;
     private boolean isDone;
-    private String taskAddDate;
+    private Date taskAddDate;
 
-    public Task(String name, boolean isDone, String taskAddDate) {
+
+    public Task(int id, String name, String description, boolean isDone, Date taskAddDate) {
+        this.id = id;
         this.name = name;
+        this.description = description;
         this.isDone = isDone;
         this.taskAddDate = taskAddDate;
     }
 
-    public Task(String name) {
-        this.name = name;
-        this.isDone = false;
-        this.taskAddDate = new SimpleDateFormat("dd/MMMM/yyyy HH:mm:ss").format(Calendar.getInstance().getTime());;
+    public int getId() {
+        return id;
     }
 
     public String getName() {
         return name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public boolean isDone() {
         return isDone;
     }
 
-    public String getTaskAddDate() {
+    public Date getTaskAddDate() {
         return taskAddDate;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDone(boolean done) {
-        isDone = done;
-    }
-
 
     @Override
     public String toString() {
